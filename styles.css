@@ -1,0 +1,302 @@
+/* ============================================================
+   TARJETA DIGITAL EXPRESS — styles.css
+   Step Up Business Solutions
+   ============================================================ */
+
+/* ── VARIABLES DE DISEÑO ──────────────────────────────────── */
+:root {
+  --color-gold:        #C9A84C;
+  --color-gold-light:  #E8C97A;
+  --color-gold-dark:   #9A7230;
+  --color-cream:       #F5EDD8;
+  --color-white:       #FFFFFF;
+  --color-dark:        #0D0A06;
+  --color-overlay:     rgba(10, 8, 4, 0.68);
+
+  --font-display:      'Playfair Display', Georgia, serif;
+  --font-body:         'Lato', Helvetica, sans-serif;
+
+  --card-w:            1080px;
+  --card-h:            1920px;
+}
+
+/* ── RESET Y BASE ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  /* Centrar la tarjeta en pantalla durante previsualización */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ── CONTENEDOR PRINCIPAL ─────────────────────────────────── */
+/* Medida exacta: 1080 x 1920 px — sin scroll interno */
+.digital-card {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--color-cream);
+}
+
+/* ── CAPA 1: IMAGEN DE FONDO ──────────────────────────────── */
+.card-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+/* ── CAPA 2: OVERLAY OSCURO ───────────────────────────────── */
+/* Garantiza legibilidad sobre cualquier imagen de fondo */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-overlay);
+  /* Degradado superior más oscuro, zona QR más clara */
+  background: linear-gradient(
+    180deg,
+    rgba(8, 5, 2, 0.10)  0%,
+    rgba(8, 5, 2, 0.50) 30%,
+    rgba(8, 5, 2, 0.50) 30%,
+    rgba(8, 5, 2, 0.50) 55%,
+    rgba(8, 5, 2, 0.30) 78%,
+    rgba(8, 5, 2, 0.40) 100%
+  );
+}
+
+/* ── CAPA 3: CONTENIDO ────────────────────────────────────── */
+.card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 170px 72px 72px;
+}
+
+/* ── DECORACIONES: LÍNEAS ─────────────────────────────────── */
+.deco-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold) 20%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 80%,
+    transparent 100%
+  );
+  margin-top: 10px;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.qr-bottom-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold) 20%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 80%,
+    transparent 100%
+  );
+  margin-top: 66px;
+  margin-bottom: ;
+  opacity: 0.9;
+}
+
+.deco-divider {
+  width: 180px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+  margin: 5px auto 50px;
+}
+
+.bottom-divider {
+  width: 100%;
+  margin: 0 0 40px;
+  opacity: 0.5;
+}
+
+/* ── SECCIÓN SUPERIOR: HEADER ─────────────────────────────── */
+.card-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 180px;
+}
+
+/* Logo */
+.logo-wrap {
+  margin: 36px 0 32px;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nombre del negocio */
+.business-name {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--color-cream);
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 24px rgba(0,0,0,1);
+}
+
+/* Eslogan */
+.slogan {
+  font-family: var(--font-body);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  text-align: center;
+  opacity: 1;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.85);
+  margin-top: 80;
+  margin-bottom: 80px;
+}
+
+
+/* ── SECCIÓN QR ───────────────────────────────────────────── */
+.card-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Marco decorativo con esquinas doradas */
+.qr-frame {
+  position: relative;
+  width: 525px;
+  height: 525px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 22px;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.6),
+    0 12px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+/* Esquinas decorativas doradas */
+.qr-corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-color: var(--color-gold);
+  border-style: solid;
+}
+.qr-corner.tl { top: -2px;  left: -2px;  border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
+.qr-corner.tr { top: -2px;  right: -2px; border-width: 3px 3px 0 0; border-radius: 0 4px 0 0; }
+.qr-corner.bl { bottom: -2px; left: -2px;  border-width: 0 0 3px 3px; border-radius: 0 0 0 4px; }
+.qr-corner.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
+
+/* Imagen QR */
+.qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Texto CTA sobre el QR */
+.qr-cta {
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-top: 80;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 1;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.85);
+}
+
+/* Descripción debajo del QR */
+.qr-description {
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+  opacity: 1;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.85);
+}
+
+/* ── SECCIÓN INFERIOR: FOOTER ─────────────────────────────── */
+.card-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Frase final */
+.frase-final {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin-top: 0;
+  opacity: 0.88;
+}
